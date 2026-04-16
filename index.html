@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frank Navarrete — Journalism Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a18;
+    --ink2: #4a4a47;
+    --ink3: #888780;
+    --rule: #d3d1c7;
+    --rule2: #b4b2a9;
+    --bg: #faf9f6;
+    --bg2: #f1efe8;
+    --accent: #185fa5;
+    --accent-bg: #e6f1fb;
+  }
+
+  html { font-size: 16px; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  /* MASTHEAD */
+  .mast {
+    border-top: 2.5px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding: 1.75rem 0 1.5rem;
+    margin-bottom: 3rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 1.5rem;
+  }
+
+  .flag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink3);
+    margin-bottom: .45rem;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    color: var(--ink);
+  }
+
+  .byline-title {
+    font-size: 17px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink2);
+    margin-top: .4rem;
+  }
+
+  .contact {
+    text-align: right;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--ink2);
+    line-height: 2;
+  }
+
+  .contact a { color: var(--accent); text-decoration: none; }
+  .contact a:hover { text-decoration: underline; }
+
+  /* SECTION LABELS */
+  .sl {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--ink3);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: .5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  /* LEDE */
+  .lede {
+    font-size: 19px;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--ink);
+    max-width: 660px;
+    margin-bottom: 3rem;
+  }
+
+  /* CLIP CARDS */
+  .clips { display: grid; gap: 1.1rem; margin-bottom: 3rem; }
+
+  .two-col { grid-template-columns: 1fr 1fr; }
+
+  .clip {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color .15s, box-shadow .15s;
+  }
+
+  .clip:hover {
+    border-color: var(--rule2);
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  }
+
+  .clip.featured { border-left: 3px solid var(--accent); }
+
+  .ctag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: .4rem;
+  }
+
+  .ched {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--ink);
+    margin-bottom: .5rem;
+  }
+
+  .cdek {
+    font-size: 13.5px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--ink2);
+  }
+
+  .clink {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    margin-top: .6rem;
+  }
+
+  .cmeta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink3);
+    text-align: right;
+    white-space: nowrap;
+    line-height: 1.7;
+    padding-top: 2px;
+  }
+
+  /* SKILLS */
+  .pills { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 3rem; }
+
+  .pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    padding: 4px 13px;
+    border-radius: 100px;
+    border: 1px solid var(--rule2);
+    color: var(--ink2);
+    background: var(--bg2);
+  }
+
+  .pill.tech {
+    color: var(--accent);
+    border-color: #b5d4f4;
+    background: var(--accent-bg);
+  }
+
+  /* EDU */
+  .edu-grid { display: grid; gap: .85rem; margin-bottom: 3rem; }
+
+  .edu-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg2);
+    border-radius: 8px;
+  }
+
+  .edu-school { font-size: 14.5px; font-weight: 400; color: var(--ink); }
+  .edu-deg { font-size: 13px; font-weight: 300; font-style: italic; color: var(--ink2); margin-top: 3px; }
+  .edu-yr { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink3); white-space: nowrap; }
+
+  /* BIO */
+  .bio {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--ink2);
+    border-left: 2px solid var(--rule2);
+    padding-left: 1.25rem;
+    margin-bottom: 3rem;
+    font-style: italic;
+  }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.25rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--ink3);
+    letter-spacing: .04em;
+  }
+
+  @media (max-width: 640px) {
+    h1 { font-size: 36px; }
+    .mast { grid-template-columns: 1fr; }
+    .contact { text-align: left; }
+    .two-col { grid-template-columns: 1fr; }
+    .clip { grid-template-columns: 1fr; }
+    .cmeta { text-align: left; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .clip { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div>
+      <div class="flag">Journalism Portfolio · 2026</div>
+      <h1>Frank Navarrete</h1>
+      <p class="byline-title">City government reporter, multimedia journalist &amp; founder, Council Beat</p>
+    </div>
+    <div class="contact">
+      <a href="mailto:frankNYCReporter@gmail.com">frankNYCReporter@gmail.com</a><br>
+      646-533-0198<br>
+      <a href="https://councilbeat.com" target="_blank">councilbeat.com</a><br>
+      <a href="https://instagram.com/franknycreporter" target="_blank">@franknycreporter</a><br>
+      New York City
+    </div>
+  </header>
+
+  <p class="lede">Reporter covering New York City's seat of local power — the budget hearings, oversight fights, and environmental votes that shape daily life for millions. Founder of <em>Council Beat</em>, an independent publication devoted to city council accountability. Also covers housing, consumer protection, and economic policy, with multimedia and data skills across the stack.</p>
+
+  <!-- COUNCIL BEAT -->
+  <div class="sl">Council Beat — flagship work</div>
+  <div class="clips">
+    <a class="clip featured" href="https://councilbeat.com/the-harding-memo-paper-chase/" target="_blank">
+      <div>
+        <div class="ctag">Investigative · Records · 9/11 accountability</div>
+        <div class="ched">The "Harding Memo" Paper Chase</div>
+        <div class="cdek">How a 25-year-old internal city document — showing officials knew of toxic exposure risks just weeks after September 11 — was finally unearthed from a Texas archive through a lawyer's cold call, a dead reporter's boxes, and a $20 copying fee. Original document, multiple on-record sources, 25-year paper trail.</div>
+        <span class="clink">councilbeat.com →</span>
+      </div>
+      <div class="cmeta">Mar 2026<br>Council Beat</div>
+    </a>
+    <a class="clip" href="https://councilbeat.com/no-tolerance-for-corruption-but-no-extra-funds-either/" target="_blank">
+      <div>
+        <div class="ctag">Budget · Oversight · Data</div>
+        <div class="ched">No Tolerance For Corruption, But No Extra Funds Either</div>
+        <div class="cdek">Mayor Mamdani pledged zero tolerance for corruption — then proposed cutting the Department of Investigation's budget while case completion times are up 29%. Data-driven contrast between political rhetoric and agency resources.</div>
+        <span class="clink">councilbeat.com →</span>
+      </div>
+      <div class="cmeta">Mar 2026<br>Council Beat</div>
+    </a>
+    <a class="clip" href="https://councilbeat.com/council-proposes-new-earth-day-bills-that-parks-department-finds-redundant/" target="_blank">
+      <div>
+        <div class="ctag">Environment · Hearing dispatch</div>
+        <div class="ched">Council Proposes New Earth Day Bills That Parks Department Finds Redundant</div>
+        <div class="cdek">Four Earth Day bills on trails, playgrounds, green space equity, and wildlife run into a quiet standoff: the Parks Department says it's already doing all of it. A scene-driven hearing dispatch on legislative duplication and urban nature.</div>
+        <span class="clink">councilbeat.com →</span>
+      </div>
+      <div class="cmeta">Apr 2026<br>Council Beat</div>
+    </a>
+  </div>
+
+  <!-- OTHER JOURNALISM -->
+  <div class="sl">Other journalism</div>
+  <div class="clips two-col">
+    <a class="clip" href="https://www.thecity.nyc/2026/01/20/gas-prices-octane-fuel-consumers/" target="_blank">
+      <div>
+        <div class="ctag">Consumer · Investigative · The City NYC</div>
+        <div class="ched">Gaslit at the Pump</div>
+        <div class="cdek">Gas stations across New York City may be selling fuel at octane ratings different from what customers are paying for — a consumer protection investigation published by The City NYC.</div>
+        <span class="clink">thecity.nyc →</span>
+      </div>
+      <div class="cmeta">Jan 2026<br>The City NYC</div>
+    </a>
+    <a class="clip" href="https://keykindelan.github.io/RentTheft/" target="_blank">
+      <div>
+        <div class="ctag">Data investigation · Housing</div>
+        <div class="ched">Rent Theft</div>
+        <div class="cdek">A data-driven investigation into housing code violations inside rent-stabilized units across New York City, using city records to map patterns of landlord neglect in protected housing stock.</div>
+        <span class="clink">View project →</span>
+      </div>
+      <div class="cmeta">2025<br>CUNY</div>
+    </a>
+    <a class="clip" href="https://issuenumberone.journalism.cuny.edu/author/franknavarrete-2-2-2/" target="_blank">
+      <div>
+        <div class="ctag">Trade · Economy · Longform</div>
+        <div class="ched">The Golden Road</div>
+        <div class="cdek">A maple syrup producing region in Maine with only one road out to Canada — and the tariff dilemma that single route creates for the farmers who depend on it.</div>
+        <span class="clink">CUNY Issue No. One →</span>
+      </div>
+      <div class="cmeta">2025<br>CUNY</div>
+    </a>
+    <a class="clip" href="https://coveringcompanies.journalism.cuny.edu/2025/12/04/crypto-crosses-the-generational-divide/" target="_blank">
+      <div>
+        <div class="ctag">Finance · Business</div>
+        <div class="ched">Crypto Crosses the Generational Divide</div>
+        <div class="cdek">Coinbase CEO Brian Thompson and BlackRock's Larry Fink share a stage at DealBook 2025 — a scene that captures crypto's arrival into the financial establishment and what it means across generations.</div>
+        <span class="clink">Covering Companies →</span>
+      </div>
+      <div class="cmeta">Dec 2025<br>CUNY</div>
+    </a>
+  </div>
+
+  <!-- MULTIMEDIA -->
+  <div class="sl">Multimedia &amp; features</div>
+  <div class="clips two-col">
+    <a class="clip" href="https://www.instagram.com/franknycreporter/reel/DJ7LSqqx8m0/" target="_blank">
+      <div>
+        <div class="ctag">Video · Social · Architecture</div>
+        <div class="ched">One Rooftop, With Three Buildings in 25 Seconds</div>
+        <div class="cdek">A social video series filmed on NYC rooftops telling the stories behind buildings visible from neighborhoods around the city.</div>
+        <span class="clink">Instagram →</span>
+      </div>
+      <div class="cmeta">Ongoing</div>
+    </a>
+    <a class="clip" href="https://vimeo.com/1128549944" target="_blank">
+      <div>
+        <div class="ctag">Documentary · Culture</div>
+        <div class="ched">El Traje</div>
+        <div class="cdek">A night with a mariachi band in New York City. Short documentary combining scene-setting, character work, and original sound design.</div>
+        <span class="clink">Vimeo →</span>
+      </div>
+      <div class="cmeta">2025</div>
+    </a>
+    <a class="clip" href="https://www.nycitynewsservice.com/2025/06/18/swimming-after-transitioning-how-community-realigns-purpose/" target="_blank">
+      <div>
+        <div class="ctag">Feature · Profile</div>
+        <div class="ched">Transitions</div>
+        <div class="cdek">Profile of Emily Fogle — trans athlete, swim coach, and therapist — on how community rebuilds purpose after transition.</div>
+        <span class="clink">NYC City News Service →</span>
+      </div>
+      <div class="cmeta">Jun 2025<br>NYC City News Service</div>
+    </a>
+    <a class="clip" href="https://shelterforce.org/author/frank-navarrete/" target="_blank">
+      <div>
+        <div class="ctag">Housing · National</div>
+        <div class="ched">Shelterforce — housing journalism</div>
+        <div class="cdek">Reporting on community development finance, homeownership equity, and artist housing across the country for a leading national housing publication.</div>
+        <span class="clink">shelterforce.org →</span>
+      </div>
+      <div class="cmeta">2024–25<br>Shelterforce</div>
+    </a>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="sl">Education</div>
+  <div class="edu-grid">
+    <div class="edu-item">
+      <div>
+        <div class="edu-school">Craig Newmark Graduate School of Journalism, CUNY</div>
+        <div class="edu-deg">Master of Arts, Journalism — Business &amp; Economics reporting · Teaching Assistant, Intro to Data Journalism</div>
+      </div>
+      <div class="edu-yr">Dec 2025</div>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-school">Northwestern University</div>
+        <div class="edu-deg">Bachelor of Science, English — Magna Cum Laude</div>
+      </div>
+      <div class="edu-yr">Jun 2016</div>
+    </div>
+  </div>
+
+  <!-- COVERAGE AREAS -->
+  <div class="sl">Coverage areas</div>
+  <div class="pills">
+    <span class="pill">City budget &amp; finance</span>
+    <span class="pill">Government oversight</span>
+    <span class="pill">Environmental policy</span>
+    <span class="pill">Housing &amp; land use</span>
+    <span class="pill">Public records / FOIL</span>
+    <span class="pill">Consumer protection</span>
+    <span class="pill">Business &amp; economics</span>
+    <span class="pill">NYC Council hearings</span>
+    <span class="pill">National housing policy</span>
+  </div>
+
+  <!-- TECHNICAL SKILLS -->
+  <div class="sl">Technical skills</div>
+  <div class="pills">
+    <span class="pill tech">Python · Pandas · scraping</span>
+    <span class="pill tech">Datawrapper</span>
+    <span class="pill tech">GitHub</span>
+    <span class="pill tech">HTML · CSS</span>
+    <span class="pill tech">Adobe Premiere</span>
+    <span class="pill tech">Adobe Photoshop</span>
+    <span class="pill tech">Canon C100 / C200</span>
+    <span class="pill tech">DSLR photography</span>
+    <span class="pill tech">Pro Tools</span>
+    <span class="pill tech">Google Sheets</span>
+  </div>
+
+  <!-- BIO -->
+  <div class="sl">Background</div>
+  <p class="bio">Before journalism, Frank spent 15 years researching land records throughout the Chicagoland region, managing a team of five and overseeing title insurance and escrow operations at O'Connor Title Guaranty. That foundation in document work and institutional paper trails directly shapes his approach to accountability reporting. He holds an MA from CUNY's Newmark J-School with a concentration in business and economics reporting, and a BS from Northwestern, Magna Cum Laude. He also plays drums.</p>
+
+  <footer class="footer">
+    Frank Navarrete · frankNYCReporter@gmail.com · 646-533-0198 · councilbeat.com · @franknycreporter
+  </footer>
+
+</div>
+</body>
+</html>
